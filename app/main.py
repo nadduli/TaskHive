@@ -13,7 +13,7 @@ app = FastAPI()
 @app.get("/health")
 def health_check():
     """Checks the health of the application"""
-    return {"status": "Ok"}
+    return {"status": "OK"}
 
 
 if __name__ == "__main__":
