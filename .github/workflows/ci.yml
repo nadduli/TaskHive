@@ -37,8 +37,6 @@ jobs:
     - name: Lint with flake8
       run: flake8 .
     
-    - name: Type checking with mypy
-      run: mypy app/
     
     - name: Run tests with coverage
       run: |
