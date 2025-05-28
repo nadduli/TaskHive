@@ -6,4 +6,7 @@ per-file-ignores =
     # Ignore missing docstrings in tests
     tests/*:D100,D101,D102,D103
     # Ignore line length in migrations
-    migrations/*:E501 
+    migrations/*:E501
+
+[flake8]
+ignore = F401
