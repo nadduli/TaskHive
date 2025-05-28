@@ -8,5 +8,4 @@ per-file-ignores =
     # Ignore line length in migrations
     migrations/*:E501
 
-[flake8]
 ignore = F401
