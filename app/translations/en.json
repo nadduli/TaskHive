@@ -1,0 +1,27 @@
+{
+  "common": {
+    "welcome": "Welcome to TaskHive",
+    "hello_user": "Hello, %{name}!",
+    "error": {
+      "not_found": "Resource not found",
+      "unauthorized": "Unauthorized access",
+      "bad_request": "Invalid request"
+    }
+  },
+  "task": {
+    "create": "Create Task",
+    "update": "Update Task",
+    "delete": "Delete Task",
+    "status": {
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "completed": "Completed"
+    }
+  },
+  "user": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "profile": "Profile"
+  }
+}
