@@ -19,5 +19,5 @@ def test_headers():
         "en": {"Accept-Language": "en"},
         "es": {"Accept-Language": "es"},
         "fr": {"Accept-Language": "fr"},  # Unsupported language
-        "complex": {"Accept-Language": "en-US,en;q=0.9,es;q=0.8"}
-    } 
+        "complex": {"Accept-Language": "en-US,en;q=0.9,es;q=0.8"},
+    }

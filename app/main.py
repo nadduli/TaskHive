@@ -35,10 +35,7 @@ def health_check():
 async def welcome(request: Request):
     """Welcome endpoint with i18n support"""
     locale = request.state.locale
-    return {
-        "message": t("common.welcome", locale=locale),
-        "locale": locale
-    }
+    return {"message": t("common.welcome", locale=locale), "locale": locale}
 
 
 if __name__ == "__main__":

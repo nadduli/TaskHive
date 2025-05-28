@@ -9,42 +9,35 @@ from fastapi import Request
 
 client = TestClient(app)
 
+
 def test_welcome_endpoint_english():
     """Test welcome endpoint with English language header"""
     response = client.get("/welcome", headers={"Accept-Language": "en"})
     assert response.status_code == 200
-    assert response.json() == {
-        "message": "Welcome to TaskHive",
-        "locale": "en"
-    }
+    assert response.json() == {"message": "Welcome to TaskHive", "locale": "en"}
+
 
 def test_welcome_endpoint_spanish():
     """Test welcome endpoint with Spanish language header"""
     response = client.get("/welcome", headers={"Accept-Language": "es"})
     assert response.status_code == 200
-    assert response.json() == {
-        "message": "Bienvenido a TaskHive",
-        "locale": "es"
-    }
+    assert response.json() == {"message": "Bienvenido a TaskHive", "locale": "es"}
+
 
 def test_welcome_endpoint_default_locale():
     """Test welcome endpoint with no language header"""
     response = client.get("/welcome")
     assert response.status_code == 200
-    assert response.json() == {
-        "message": "Welcome to TaskHive",
-        "locale": "en"
-    }
+    assert response.json() == {"message": "Welcome to TaskHive", "locale": "en"}
+
 
 def test_welcome_endpoint_unsupported_locale():
     """Test welcome endpoint with unsupported language"""
     response = client.get("/welcome", headers={"Accept-Language": "fr"})
     assert response.status_code == 200
     # Should fall back to English
-    assert response.json() == {
-        "message": "Welcome to TaskHive",
-        "locale": "fr"
-    }
+    assert response.json() == {"message": "Welcome to TaskHive", "locale": "fr"}
+
 
 def test_translation_function():
     """Test the translation function directly"""
@@ -58,6 +51,7 @@ def test_translation_function():
     assert t("task.create", locale="es") == "Crear Tarea"
     assert t("user.login", locale="es") == "Iniciar Sesión"
 
+
 def test_get_locale_function():
     """Test the get_locale function"""
     # Test with English header
@@ -69,12 +63,15 @@ def test_get_locale_function():
     assert get_locale(mock_request) == "es"
 
     # Test with complex Accept-Language header
-    mock_request = Request({"type": "http", "headers": [(b"accept-language", b"en-US,en;q=0.9")]})
+    mock_request = Request(
+        {"type": "http", "headers": [(b"accept-language", b"en-US,en;q=0.9")]}
+    )
     assert get_locale(mock_request) == "en"
 
     # Test with no header
     mock_request = Request({"type": "http", "headers": []})
     assert get_locale(mock_request) == "en"
+
 
 def test_nested_translations():
     """Test nested translation keys"""
@@ -88,6 +85,7 @@ def test_nested_translations():
     assert t("task.status.in_progress", locale="es") == "En Progreso"
     assert t("common.error.not_found", locale="es") == "Recurso no encontrado"
 
+
 def test_translation_with_params():
     """Test translations with parameter interpolation"""
     # Add a new test key to both language files first
@@ -97,7 +95,7 @@ def test_translation_with_params():
     # Update English translations
     en_file = Path("app/translations/en.json")
     es_file = Path("app/translations/es.json")
-    
+
     for file_path in [en_file, es_file]:
         with open(file_path, "r+") as f:
             data = json.load(f)
@@ -111,4 +109,4 @@ def test_translation_with_params():
 
     # Test parameter interpolation
     assert t("common.hello_user", locale="en", name="John") == "Hello, John!"
-    assert t("common.hello_user", locale="es", name="John") == "¡Hola, John!" 
+    assert t("common.hello_user", locale="es", name="John") == "¡Hola, John!"

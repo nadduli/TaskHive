@@ -10,10 +10,8 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlmodel import text
 
 
-async_engine = create_async_engine(
-    url=settings.POSTGRES_URL,
-    echo=True
-)
+async_engine = create_async_engine(url=settings.POSTGRES_URL, echo=True)
+
 
 async def init_db():
     async with AsyncSession(async_engine) as session:
