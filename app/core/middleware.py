@@ -1,5 +1,6 @@
 from fastapi import Request
 from starlette.middleware.base import BaseHTTPMiddleware
+
 from .i18n import get_locale
 
 

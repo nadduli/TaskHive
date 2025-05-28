@@ -4,11 +4,11 @@
 This module provides a function to create a database connection and
 initialize the database with the required tables.
 """
-from app.core.config import settings
-from sqlmodel.ext.asyncio.session import AsyncSession
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlmodel import text
+from sqlmodel.ext.asyncio.session import AsyncSession
 
+from app.core.config import settings
 
 async_engine = create_async_engine(url=settings.POSTGRES_URL, echo=True)
 

@@ -2,10 +2,11 @@
 """Tests for the internationalization (i18n) functionality"""
 
 import pytest
-from fastapi.testclient import TestClient
-from app.main import app
-from app.core.i18n import t, get_locale
 from fastapi import Request
+from fastapi.testclient import TestClient
+
+from app.core.i18n import get_locale, t
+from app.main import app
 
 client = TestClient(app)
 
@@ -89,8 +90,8 @@ def test_nested_translations():
 def test_translation_with_params():
     """Test translations with parameter interpolation"""
     # Add a new test key to both language files first
-    from pathlib import Path
     import json
+    from pathlib import Path
 
     # Update English translations
     en_file = Path("app/translations/en.json")

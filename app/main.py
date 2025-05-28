@@ -3,13 +3,15 @@
 """
 Entry point to taskhive application
 """
-from fastapi import FastAPI, Request
-import uvicorn
 from contextlib import asynccontextmanager
-from app.database.database import init_db
+
+import uvicorn
+from fastapi import FastAPI, Request
+
 from app.core.config import settings
-from app.core.middleware import LocaleMiddleware
 from app.core.i18n import t
+from app.core.middleware import LocaleMiddleware
+from app.database.database import init_db
 
 
 @asynccontextmanager

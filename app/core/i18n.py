@@ -1,7 +1,8 @@
 from pathlib import Path
+from typing import Optional
+
 import i18n
 from fastapi import Request
-from typing import Optional
 
 # Set up i18n configuration
 i18n.load_path.append(str(Path(__file__).parent.parent / "translations"))
