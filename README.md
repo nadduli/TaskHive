@@ -1,16 +1,17 @@
-# TaskHive
+# SkillBridge
 
-TaskHive is a modern task management system built with FastAPI, offering a robust and scalable solution for task organization and collaboration.
+SkillBridge is a dynamic platform that connects unemployed youth with micro-opportunities in their local communities while enabling small businesses to find affordable local talent. Built with FastAPI, it offers a scalable solution for bridging the employment gap and fostering community growth.
 
 ## Features
 
-- 🚀 **Fast and Modern**: Built with FastAPI and Python 3.8+
-- 🌐 **Internationalization**: Multi-language support (currently English and Spanish)
-- 🔐 **Authentication**: Secure user authentication system
-- 📝 **Task Management**: Create, update, and track tasks
-- 🎯 **Status Tracking**: Monitor task progress with different status levels
-- 🔄 **RESTful API**: Well-documented API endpoints
-- 🐳 **Docker Support**: Easy deployment with Docker and docker-compose
+- 🤝 **Community Connection**: Match local talent with nearby opportunities
+- 💼 **Micro-Opportunities**: Short-term, flexible work arrangements
+- 🎯 **Skill Matching**: Smart matching system based on skills and requirements
+- 📈 **Growth Tracking**: Monitor progress and skill development
+- ⭐ **Rating System**: Build reputation through completed work
+- 🔐 **Secure Platform**: Safe and verified user authentication
+- 🌐 **Internationalization**: Multi-language support for diverse communities
+- 📱 **Mobile Responsive**: Access opportunities on any device
 
 ## Getting Started
 
@@ -23,8 +24,8 @@ TaskHive is a modern task management system built with FastAPI, offering a robus
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/nadduli/TaskHive.git
-cd TaskHive
+git clone https://github.com/yourusername/SkillBridge.git
+cd SkillBridge
 ```
 
 2. Create and activate a virtual environment:
@@ -58,14 +59,16 @@ Once the application is running, you can access:
 - Interactive API documentation: `http://localhost:8000/docs`
 - Alternative API documentation: `http://localhost:8000/redoc`
 
-### Example Endpoints
+### Core Endpoints
 
-- `GET /health`: Health check endpoint
-- `GET /welcome`: Welcome message with i18n support
+- `GET /opportunities`: Browse available opportunities
+- `GET /skills`: List available skill categories
+- `POST /matches`: Create new job matches
+- `GET /profile`: User profile and history
 
 ## Internationalization (i18n)
 
-TaskHive supports multiple languages through its i18n system. Currently supported languages:
+SkillBridge supports multiple languages to serve diverse communities. Currently supported languages:
 - English (en)
 - Spanish (es)
 
@@ -79,16 +82,10 @@ curl -H "Accept-Language: en" http://localhost:8000/welcome
 curl -H "Accept-Language: es" http://localhost:8000/welcome
 ```
 
-### Adding New Languages
-
-1. Create a new translation file in `app/translations/` (e.g., `fr.json` for French)
-2. Follow the same JSON structure as existing translation files
-3. The system will automatically detect and use the new language
-
 ## Project Structure
 
 ```
-TaskHive/
+SkillBridge/
 ├── app/
 │   ├── api/           # API routes
 │   ├── core/          # Core functionality
@@ -96,12 +93,13 @@ TaskHive/
 │   ├── models/        # Data models
 │   ├── schemas/       # Pydantic schemas
 │   ├── services/      # Business logic
+│   ├── matching/      # Matching algorithm
 │   ├── translations/  # i18n translation files
 │   └── utils/         # Utility functions
 ├── tests/             # Test files
 ├── docker-compose.yml # Docker compose config
-├── dockerfile        # Docker config
-└── requirements.txt  # Python dependencies
+├── dockerfile         # Docker config
+└── requirements.txt   # Python dependencies
 ```
 
 ## Contributing
@@ -116,8 +114,11 @@ TaskHive/
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgments
+## Impact
 
-- FastAPI framework
-- SQLAlchemy
-- Python-i18n
+SkillBridge aims to:
+- Reduce youth unemployment in local communities
+- Support small business growth through affordable talent
+- Build professional experience for young workers
+- Strengthen local economic ecosystems
+- Create sustainable employment pathways
