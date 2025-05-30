@@ -37,15 +37,25 @@ jobs:
     - name: Lint with flake8
       run: flake8 .
     
+    #- name: Run all pre-commit hooks
+    #  run: pre-commit run --all-files
     
    # - name: Run tests with coverage
-    #  run: |
-     #   pytest --cov=app --cov-report=xml
+   #   run: pytest --cov=app
     
-  #  - name: Upload coverage to Codecov
-  #    uses: codecov/codecov-action@v4
-  #    with:
-   #     file: ./coverage.xml
-   #     fail_ci_if_error: true
-   #   env:
-   #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+   # - name: Format code
+   #   run: black .
+    
+   # - name: Sort imports
+   #   run: isort .
+    
+    #- name: Type checking
+    #  run: mypy app/
+    
+    # - name: Upload coverage to Codecov
+    #   uses: codecov/codecov-action@v4
+    #   with:
+    #     file: ./coverage.xml
+    #     fail_ci_if_error: true
+    #   env:
+    #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

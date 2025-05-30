@@ -23,7 +23,7 @@ TaskHive is a modern task management system built with FastAPI, offering a robus
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/TaskHive.git
+git clone https://github.com/nadduli/TaskHive.git
 cd TaskHive
 ```
 
