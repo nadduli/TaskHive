@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """settings module"""
 
-
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
