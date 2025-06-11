@@ -13,7 +13,6 @@ class Settings(BaseSettings):
     APP_VERSION: str
     APP_DESCRIPTION: str
 
-
     model_config = SettingsConfigDict(
         env_file=".env",
         extra="ignore",
