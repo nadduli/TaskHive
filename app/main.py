@@ -57,16 +57,11 @@ async def get_root(request: Request):
 @app.get("/health")
 def health_check():
     """Checks the health of the application"""
-    logger.debug("Health check endpoint called")
-    return {
-        "status": "OK",
-        "app_name": settings.APP_NAME,
-        "app_version": settings.APP_VERSION,
-        "app_description": settings.APP_DESCRIPTION,
-        "app_contact_email": settings.APP_CONTACT_EMAIL,
-        "app_contact_url": settings.APP_CONTACT_URL,
-        "app_contact_phone": settings.APP_CONTACT_PHONE,
-    }
+    return JSONResponseDict(
+        message="Health check endpoint called",
+        status_code=status.HTTP_200_OK,
+        data={"status": "OK"},
+    )
 
 
 if __name__ == "__main__":

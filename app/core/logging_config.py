@@ -27,10 +27,8 @@ class InterceptHandler(logging.Handler):
 
 def setup_logging():
     """Configure logging for development environment"""
-    # Remove default logger
     logger.remove()
 
-    # Development format - clear and informative for console
     log_format = (
         "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
         "<level>{level: <8}</level> | "
@@ -38,13 +36,10 @@ def setup_logging():
         "<level>{message}</level>"
     )
 
-    # Console only logging for development
     logger.add(sys.stderr, format=log_format, level="DEBUG", colorize=True)
 
-    # Intercept all standard logging
     logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
 
-    # Explicitly intercept uvicorn and sqlalchemy logs
     for logger_name in ["uvicorn", "uvicorn.access", "sqlalchemy.engine"]:
         logging_logger = logging.getLogger(logger_name)
         logging_logger.handlers = [InterceptHandler()]
